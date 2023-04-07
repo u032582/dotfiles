@@ -6,5 +6,5 @@ alias ubuntu='docker run -it --rm -u devuser -v `pwd`:/home/devuser/work ghcr.io
 alias ipaddress='curl inet-ip.info'
 
 # need set env AWS_MFA_ARN
-alias aws2fa='echo -n "enter token: " && read token && source <(aws sts get-session-token --token-code "$token" --serial-number ${AWS_MFA_ARN} | jq -r ".Credentials | [\"export AWS_ACCESS_KEY_ID=\(.AccessKeyId)\", \"export AWS_SECRET_ACCESS_KEY=\(.SecretAccessKey)\",\"export AWS_SESSION_TOKEN=\(.SessionToken)\", \"echo Expiration: \(.Expiration)\"] | @tsv" | tr "\t" "\n")'
+alias awsmfa='echo -n "enter token: " && read token && source <(aws sts get-session-token --token-code "$token" --serial-number ${AWS_MFA_ARN} --output json | jq -r ".Credentials | [\"export AWS_ACCESS_KEY_ID=\(.AccessKeyId)\", \"export AWS_SECRET_ACCESS_KEY=\(.SecretAccessKey)\",\"export AWS_SESSION_TOKEN=\(.SessionToken)\", \"echo Expiration: \(.Expiration)\"] | @tsv" | tr "\t" "\n")'
 
