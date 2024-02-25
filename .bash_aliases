@@ -12,4 +12,4 @@ alias ec2="aws ec2 describe-instances --query \"Reservations[].Instances[].{Name
 alias ec2start=' aws ec2 start-instances --instance-ids'
 alias ec2stop=' aws ec2 stop-instances --instance-ids'
 
-alias ssm="aws ssm describe-instance-information --query 'InstanceInformationList[*].{InstanceId:InstanceId, Platform:PlatformName,IPAddress:IPAddress,Name:Name,version:PlatformVersion}' --output table"
+alias ssm="aws ssm describe-instance-information --query 'InstanceInformationList[*].{AssociationStatus:AssociationStatus,InstanceId:InstanceId, Platform:PlatformName,IPAddress:IPAddress,Name:Name,version:PlatformVersion,Ping:PingStatus}' --output table"
