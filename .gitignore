@@ -67,3 +67,4 @@
 !.gitkeep
 !/dconf
 !/plantuml
+!setup.sh

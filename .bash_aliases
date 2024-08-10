@@ -1,5 +1,6 @@
-alias ll="ls -al"
-alias l="ls -l"
+alias ll="ls -alh"
+alias l="ls -lh"
+alias clock="tty-clock -sc"
 alias gnome-terminal-backup="dconf dump /org/gnome/terminal/ > ~/dotfiles/dconf/gnome-terminal"
 alias gnome-terminal-restore="dconf load /org/gnome/terminal/ < ~/dotfiles/dconf/gnome-terminal"
 alias ubuntu='docker run -it --rm -u devuser -v `pwd`:/home/devuser/work ghcr.io/u032582/ubuntu-devuser:latest -'
@@ -13,3 +14,4 @@ alias ec2start=' aws ec2 start-instances --instance-ids'
 alias ec2stop=' aws ec2 stop-instances --instance-ids'
 
 alias ssm="aws ssm describe-instance-information --query 'InstanceInformationList[*].{AssociationStatus:AssociationStatus,InstanceId:InstanceId, Platform:PlatformName,IPAddress:IPAddress,Name:Name,version:PlatformVersion,Ping:PingStatus}' --output table"
+alias ecrlogin='aws ecr get-login-password --region us-west-2 | docker login --username AWS --password-stdin 030245512612.dkr.ecr.us-west-2.amazonaws.com'
